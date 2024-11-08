@@ -9,7 +9,7 @@ Klinoff Music is a multipurpose Discord Bot that allows users in your server to 
 - [Commands](#commands)
 - [Installation](#installation)
 - [Contributing](#contributing)
-- [License](#license)
+- [License](LICENSE)
 
 ## Features
 
