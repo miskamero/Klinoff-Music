@@ -39,7 +39,7 @@ pip install -r requirements.txt
 - `!ping` - Shows the bot's latency
 - `!sayd [message]` - Repeats the given message
 - `!play [url or search query]` - Plays a song from YouTube
-- `!pause` - Pauses or resumes the current song
+- `!pause` - Pauses or unpauses the current song
 - `!skip` - Skips the current song
 - `!stop` - Stops the bot and disconnects from the voice channel
 - `!loop` - Loops the current song
