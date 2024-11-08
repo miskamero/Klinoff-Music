@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import os
 import yt_dlp as youtube_dl
 
 intents = discord.Intents.default()
@@ -47,11 +46,11 @@ async def play(ctx, *, query: str):
             'preferredcodec':'mp3',
             'preferredquality':'192',
         }],
-        "cachedir": False, # Disable caching
-        'noplaylist': True, # Only download single song, not playlist
-        'nocheckcertificate': True, # Suppress HTTPS certificate validation
-        'ignoreerrors': True, # Suppress "ERROR: unable to download video" warnings
-        'no_warnings': True, # Suppresses the "ERROR: video unavailable" warning
+        "cachedir": False,
+        'noplaylist': True,
+        'nocheckcertificate': True,
+        'ignoreerrors': True,
+        'no_warnings': True,
     }
 
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
@@ -83,7 +82,6 @@ async def play(ctx, *, query: str):
         video_lenght = float(info_dict['duration']) # this only works if a url is used in !play. To get the duration of a search result, we need to use the search_result variable
     except:
         video_lenght = None
-    # declare duration hour and minute as empty variables
     duration_hours = 0
     duration_minutes = 0
     if video_lenght is not None:
@@ -96,7 +94,6 @@ async def play(ctx, *, query: str):
             duration_minutes = int(video_length // 60)
         duration_seconds = int(video_length % 60)
         await ctx.send(f"Added {title} to the queue. Duration: {duration_hours}h {duration_minutes}m {duration_seconds}s  -  {len(queue)} songs currently in queue.")
-        # await ctx.send(f"Added {title} to the queue. Duration: {video_lenght//60}m {video_lenght%60}s  -  {len(queue)} songs currently in queue.")    
     else:
         await ctx.send(f"Added {title} to the queue. Duration: Unknown  -  {len(queue)} songs currently in queue.")
     if not ctx.voice_client.is_playing() and not paused:
@@ -230,31 +227,11 @@ async def pause(ctx):
     else:
         await ctx.send("No song is playing.")
 
-
-# command ideas:
-# !shuffle
-# !np, !nowplaying
-# !shuffle
-# !remove
-# !move
-# !lyrics
-# !search
-# !join
-# !disconnect
-# !stop
-# !restart
-# !seek
-# !forward
-# !rewind
-# !random
-        
-# stops the bot, making it offline
 @bot.command()
 async def stop(ctx):
     if ctx.author.guild_permissions.administrator:
         print(f"Bot turned off by {ctx.author}.")
         await bot.close()
-        # after the bot is stopped, the bot will print "Bot is offline."
     else:
         await ctx.send("You are not an admin.")
 
