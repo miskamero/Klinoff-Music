@@ -1,6 +1,6 @@
-# Discord Music Bot
+# Klinoff Music
 
-This is a Discord music bot that can play music from YouTube, manage a queue, and provide various music-related commands.
+Klinoff Music is a multipurpose Discord Bot that allows users in your server to play music from YouTube using URLs or search queries. While the main purpose of the bot is to play music, it also has some other features for easy management of messages!
 
 ## Sections
 
@@ -8,7 +8,7 @@ This is a Discord music bot that can play music from YouTube, manage a queue, an
 - [Requirements](#requirements)
 - [Commands](#commands)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
@@ -52,20 +52,49 @@ pip install -r requirements.txt
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/discord-music-bot.git
+    git clone https://github.com/miskamero/Klinoff-Music.git
     ```
 2. Navigate to the project directory:
     ```sh
-    cd discord-music-bot
+    cd Klinoff-Music
     ```
 3. Install the required dependencies:
     ```sh
     pip install -r requirements.txt
     ```
-4. Add your bot token to `token.txt`.
+4. Add your bot token from the [Discord Developer Portal](https://discord.com/developers/applications) to the `token.txt` file:
+    ```sh
+    echo "YOUR_BOT_TOKEN" > token.txt
+    ```
+5. Run the bot:
+    ```sh
+    python main.py
+    ```
 
-## Usage
 
-Run the bot:
-```sh
-python [main.py](http://_vscodecontentref_/1)
+## Contributing
+
+Contributions are always welcome! If you have any suggestions or improvements, please create an issue or pull request.
+
+### Pull Requests
+
+Make sure you have installed the dependencies and the appropriate Python version.
+
+1. Fork the repository.
+2. Create a new branch with a descriptive name:
+    ```sh
+    git checkout -b feature/my-feature
+    ```
+3. Make your changes and commit them:
+    ```sh
+    git commit -m "Add my feature"
+    ```
+4. Push your branch to your fork:
+    ```sh
+    git push origin feature/my-feature
+    ```
+5. Create a pull request from your branch to the `main` branch of the original repository.
+
+## Known Issues
+
+Perfect app, No Issues!
