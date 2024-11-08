@@ -20,7 +20,7 @@ async def ping(ctx):
 
 @bot.command()
 async def hi(ctx):
-    await ctx.send("Nöfnöf!")
+    await ctx.send("Hello!")
 
 @bot.command()
 async def sayd(ctx, *, msg):
@@ -226,6 +226,10 @@ async def pause(ctx):
         await ctx.send("Resumed.")
     else:
         await ctx.send("No song is playing.")
+
+@bot.command()
+async def information(ctx):
+    await ctx.send("```Made with Klinoff Power by miskamero on GitHub! This bot is intended to be open-source.\nYou can find the source code at https://github.com/miskamero/Klinoff-Music```")
 
 @bot.command()
 async def stop(ctx):
