@@ -6,6 +6,7 @@ YTDLP_OPTIONS = {
     "noplaylist": True,
     "quiet": True,
     "no_warnings": True,
+    "socket_timeout": 10,
 }
 
 """
@@ -101,6 +102,7 @@ def get_stream_url(song: Song) -> str | None:
         "format": "bestaudio/best",
         "quiet": True,
         "no_warnings": True,
+        "socket_timeout": 10,
     }
 
     with yt_dlp.YoutubeDL(options) as ydl:
@@ -132,7 +134,13 @@ async def play_song(player: MusicPlayer, bot, song: Song | None = None) -> bool:
             player.current_song = None
             return False
 
-    stream_url = get_stream_url(song)
+    try:
+        stream_url = await asyncio.wait_for(
+            asyncio.to_thread(get_stream_url, song),
+            timeout=15,
+        )
+    except asyncio.TimeoutError:
+        return False
 
     if stream_url is None:
         return False

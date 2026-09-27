@@ -61,7 +61,14 @@ def setup_commands(bot: commands.Bot) -> None:
 
         player = get_player(ctx.guild.id)
 
-        song = extract_song(query)
+        try:
+            song = await asyncio.wait_for(
+                asyncio.to_thread(extract_song, query),
+                timeout=15,
+            )
+        except asyncio.TimeoutError:
+            await ctx.send("❌ YouTube search timed out.")
+            return
 
         if song is None:
             await ctx.send("I couldn't find that song.")
